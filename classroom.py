@@ -22,10 +22,13 @@ class Classroom:
         self.className = name
         self.classDays = meeting_days
         self.classTimes = meeting_times
+        self.classRoster = {}
 
-    def createStudent( id, name ):
+    def addStudent( self, Student ):
         '''
         Create a new student
         '''
-        pass
+        self.classRoster[Student.getID()] = Student
     
+    def removeStudent( self, id ):
+        self.classRoster.pop(id)
