@@ -18,9 +18,12 @@ class Student:
     def removeAssignment(self, assignment):
         del self.assignmentGrades[assignment]
     
-    def getGrade(self):
+    def getAssignmentGrade(self, assignment):
+        return self.assignmentGrades[assignment]
+
+    def getGradeTotal(self, assigned_assignments):
         gradeTotal = 0
-        for assignment in self.assignmentGrades:
+        for assignment in assigned_assignments:
             gradeTotal += self.assignmentGrades[assignment]
         return gradeTotal
 

@@ -47,18 +47,6 @@ def test_remove_assignment():
     new_student.removeAssignment("first")
     assert not new_student.assignmentGrades
 
-#test that students can total grades
-def test_grade_summation_control_process_iteratoratron():
-    #create student
-    omg_mazing_student = Student("Fluffykins", "Rolly Polly", 1)
-
-    #Add Assignments
-    omg_mazing_student.updateGrade("first assignmnet", 90)
-    omg_mazing_student.updateGrade("second assignment", 90)
-    omg_mazing_student.updateGrade("Theird assignment", 90)
-    #TEST TEST TEST
-    assert omg_mazing_student.getGrade() == 90 * 3
-
 #test that classroom roster is object
 def test_classroom_roster_object():
     calculus_class = createClassroom()
@@ -74,9 +62,49 @@ def test_add_remove_student():
     classroom.removeStudent(2)
     assert len(classroom.classRoster) == 1
 
-#test that teacher can add and remove assignments from class
+#test that teacher can add assignments to class
+def test_add_assignment_to_classroom():
+    classroom = createClassroom()
+    classroom.addAssignment("first assignment", 100)
+    assert len(classroom.assignmentList) == 1
+    assert classroom.assignmentList["first assignment"] == 100
 
-#test that assignments can have no grade
+#test that teacher can remove assignments from class
+def test_remove_assignment():
+    classroom = createClassroom()
+    classroom.addAssignment("first", 100)
+    classroom.addAssignment("second", 100)
+    classroom.removeAssignment("first")
+    assert len(classroom.assignmentList) == 1
+    assert classroom.assignmentList["second"] == 100
+
+#test that teacher can assign grade to student
+def test_grade_single_assignment():
+    classroom = createClassroom()
+    classroom.addStudent(createStudent(1))
+    classroom.addAssignment("first", 100)
+    classroom.gradeAssignment(1, "first", 80)
+    assert classroom.classRoster[1].getAssignmentGrade("first") == 80
+
+#test that students can total grades
+def test_grade_summation_control_process_iteratoratron():
+    #create student
+    omg_mazing_student = Student("Fluffykins", "Rolly Polly", 1)
+
+    #Add Assignments
+    omg_mazing_student.updateGrade("first assignmnet", 90)
+    omg_mazing_student.updateGrade("second assignment", 80)
+    omg_mazing_student.updateGrade("Theird assignment", 75)
+    
+    #TEST TEST TEST
+    assert omg_mazing_student.getGradeTotal() == 81.6
+
+#test that student can have no grade for assignment
+    # classroom = createClassroom()
+    # classroom.addStudent(createStudent(1))
+    # classroom.addAssignment("first", 100)
+    # classroom.addAssignment("second", 50)
+    # classroom.gradeAssignment(1, "first", 90)
 
 #test that teacher can get accurate class gpa
 
