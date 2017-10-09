@@ -122,9 +122,16 @@ def test_setAttendance():
     '''
     student = createStudent(1)
     student.setAttendance(2017, 3, 23, "Present")
-    assert student.getAttendance(2017, 3, 23) == "Present"
-#test that teacher can get attendance
+    assert student.attendance["20170323"] == "Present"
 
+#test that teacher can get attendance
+def test_getAttendance():
+    '''
+    Test that teacher can get attendance
+    '''
+    student = createStudent(1)
+    student.setAttendance(2017, 3, 23, "Present")
+    assert student.getAttendance(2017, 3, 23) == "Present"
 #test that teacher can get accurate class gpa
 
 #test that teacher can get attendance
