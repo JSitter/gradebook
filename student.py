@@ -13,6 +13,9 @@ class Student:
         self.assignmentGrades = {}
 
     def updateGrade(self, assignment, grade):
+        '''
+        Create or Update Student Grade
+        '''
         self.assignmentGrades[assignment] = grade
     
     def removeAssignment(self, assignment):
@@ -22,9 +25,11 @@ class Student:
         return self.assignmentGrades[assignment]
 
     def getGPA(self, assigned_assignments):
+        print(assigned_assignments)
         gradeTotal = 0
         for assignment in assigned_assignments:
-            gradeTotal += self.assignmentGrades[assignment]
+            print(assigned_assignments[assignment])
+
         return gradeTotal
 
     def getID(self):
