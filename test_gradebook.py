@@ -115,8 +115,19 @@ def test_GPAafterAssignmentRemoval():
     student.removeAssignment("first")
     assert student.getGPA({"first" : 100, "Second":100}) == 100
 
+#test that teacher can set attendance
+def test_setAttendance():
+    '''
+    Test that teacher can set student attendance
+    '''
+    student = createStudent(1)
+    student.setAttendance(2017, 3, 23, "Present")
+    assert student.getAttendance(2017, 3, 23) == "Present"
+#test that teacher can get attendance
+
 #test that teacher can get accurate class gpa
 
+#test that teacher can get attendance
 
 #Test gradebook returns proper class avg
 
