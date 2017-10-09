@@ -97,6 +97,9 @@ def test_studentGPA():
     '''
         Test for correct gpa calculation
     '''
+    classRoom = createClassroom()
+    student = createStudent(1);
+    classRoom.addAssignment()
     #create student
     omg_mazing_student = Student("Fluffykins", "Rolly Polly", 1)
 
@@ -104,8 +107,12 @@ def test_studentGPA():
     omg_mazing_student.updateGrade("first assignmnet", 76)
     omg_mazing_student.updateGrade("second assignment", 56)
     omg_mazing_student.updateGrade("Theird assignment", 51)
+
+
     
     #TEST TEST TEST
+
+
     assert omg_mazing_student.getGPA() == round((76+56+57+34+41+13)/6, 1)
 
 def test_teacherCanRemoveAssignment():
@@ -134,3 +141,6 @@ def createClassroom():
 
 def createStudent(id):
     return Student("Fluffykins", "Rolly Polly", id)
+
+def createAssignmentList():
+    return { "first" : 76, "Second" : 56 , "Third": 57, "Fourth" : 34, "Fifth" : 41, "Sixth" : 13}
