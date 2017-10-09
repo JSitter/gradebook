@@ -99,21 +99,8 @@ def test_studentGPA():
     '''
     classRoom = createClassroom()
     student = createStudent(1);
-    classRoom.addAssignment()
-    #create student
-    omg_mazing_student = Student("Fluffykins", "Rolly Polly", 1)
-
-    #Add Assignments
-    omg_mazing_student.updateGrade("first assignmnet", 76)
-    omg_mazing_student.updateGrade("second assignment", 56)
-    omg_mazing_student.updateGrade("Theird assignment", 51)
-
-
     
-    #TEST TEST TEST
-
-
-    assert omg_mazing_student.getGPA() == round((76+56+57+34+41+13)/6, 1)
+    assert student.getGPA(createAssignmentList()) == round((76+56+57+34+41+13)/6, 1)
 
 def test_teacherCanRemoveAssignment():
     '''
