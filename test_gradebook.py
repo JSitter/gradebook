@@ -109,14 +109,11 @@ def test_GPAafterAssignmentRemoval():
     '''
         Test that teacher can remove assignment from student
     '''
-    
-
-    # classroom = createClassroom()
-    # classroom.addStudent(createStudent(1))
-    # classroom.addAssignment("first", 100)
-    # classroom.addAssignment("second", 50)
-    # classroom.gradeAssignment(1, "first", 90)
-    pass
+    student = createStudent(1)
+    student.updateGrade("first", 100)
+    student.updateGrade("Second", 100)
+    student.removeAssignment("first")
+    assert student.getGPA({"first" : 100, "Second":100}) == 100
 
 #test that teacher can get accurate class gpa
 
