@@ -1,9 +1,7 @@
 class Student:
     '''
         Student class keeps track of attendance, assignments
-        Should contain
-
-        Student has student ID, assignments, grade, attendence
+        Should contain student ID, assignments, grade, attendence
     '''
     def __init__(self, lastName, firstName, studentID):
         self.lastName = lastName
@@ -32,8 +30,7 @@ class Student:
         for assignment in self.assignmentGrades:
                 studentTotal += self.assignmentGrades[assignment]
                 assignmentTotal += assigned_assignments[assignment]
-                print("student grade: ", self.assignmentGrades[assignment])
-                print("assignment grade ", assigned_assignments[assignment])
+
         if assignmentTotal == 0:
             return 100
         else:
@@ -41,3 +38,9 @@ class Student:
 
     def getID(self):
         return self.studentID
+
+    def setAttendance(year, month, day, attendance):
+        pass
+    
+    def getAttendance(year, month, day):
+        pass
