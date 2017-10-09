@@ -25,12 +25,17 @@ class Student:
         return self.assignmentGrades[assignment]
 
     def getGPA(self, assigned_assignments):
-        print(assigned_assignments)
-        gradeTotal = 0
-        for assignment in assigned_assignments:
-            print(assigned_assignments[assignment])
+        print("Class Assignments: ", assigned_assignments)
+        studentTotal = 0
+        assignmentTotal = 0
+        print(self.assignmentGrades)
+        for assignment in self.assignmentGrades:
+                print(self.assignmentGrades[assignment])
 
-        return gradeTotal
+        if assignmentTotal == 0:
+            return 100
+        else:
+            return round((studentTotal/assignmentTotal), 2)
 
     def getID(self):
         return self.studentID
