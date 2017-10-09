@@ -42,3 +42,6 @@ class Classroom:
     
     def gradeAssignment(self, studentID, assignmentName, grade):
         self.classRoster[studentID].updateGrade(assignmentName, grade)
+    
+    def classGPA(self):
+        pass
