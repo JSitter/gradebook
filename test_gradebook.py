@@ -3,12 +3,18 @@ from student import Student
 from classroom import Classroom
 
 #Test that teacher can create a new classroom
-def test_class_exists():
+def test_classExists():
+    '''
+        Test if Classroom can be instantiated.
+    '''
     new_class = Classroom("Class Name", ['Mon', 'Wed', 'Fri'], ["11:30", "14:30"] )
     assert new_class
 
 #test that the classroom object has Classroom name
-def test_classroom_name():
+def test_classroomName():
+    '''
+        Test if Classroom can be named.
+    '''
     new_class = Classroom("Class Name", ['Mon', 'Wed', 'Fri'], ["11:30", "14:30"] )
     assert new_class.className == "Class Name"
 
@@ -28,19 +34,19 @@ def test_classTimes():
     assert len(new_class.classTimes) == 2
 
 #test that student class exists
-def test_student_class():
+def test_studentClass():
     new_student = Student("Last", "First", "345443")
     assert new_student 
 
 #test that roster of assignments exists
 #test that student's assignment accepts grade
-def test_assignment_list():
+def test_assignmentList():
     new_student = Student("first", "last", "1")
     new_student.updateGrade("first", 67)
     assert new_student.assignmentGrades["first"] == 67
 
 #test that student gradebook can remove assignment
-def test_remove_assignment():
+def test_removeAssignment():
     new_student = Student("Test", "Case", 1)
     new_student.updateGrade("first", 67)
     assert len(new_student.assignmentGrades) == 1
@@ -48,12 +54,12 @@ def test_remove_assignment():
     assert not new_student.assignmentGrades
 
 #test that classroom roster is object
-def test_classroom_roster_object():
+def test_classroomRosterObject():
     calculus_class = createClassroom()
     assert not calculus_class.classRoster
 
 #test that teachers should be able to add and remove students from class
-def test_add_remove_student():
+def testAddRemoveStudent():
     classroom = createClassroom()
     classroom.addStudent(createStudent(1))
     assert classroom.classRoster[1].lastName == "Fluffykins"
@@ -63,14 +69,14 @@ def test_add_remove_student():
     assert len(classroom.classRoster) == 1
 
 #test that teacher can add assignments to class
-def test_add_assignment_to_classroom():
+def testAddAssignmentToClassroom():
     classroom = createClassroom()
     classroom.addAssignment("first assignment", 100)
     assert len(classroom.assignmentList) == 1
     assert classroom.assignmentList["first assignment"] == 100
 
 #test that teacher can remove assignments from class
-def test_remove_assignment():
+def testRemoveAssignment():
     classroom = createClassroom()
     classroom.addAssignment("first", 100)
     classroom.addAssignment("second", 100)
@@ -79,7 +85,7 @@ def test_remove_assignment():
     assert classroom.assignmentList["second"] == 100
 
 #test that teacher can assign grade to student
-def test_grade_single_assignment():
+def testGradeSingleAssignment():
     classroom = createClassroom()
     classroom.addStudent(createStudent(1))
     classroom.addAssignment("first", 100)
@@ -87,24 +93,32 @@ def test_grade_single_assignment():
     assert classroom.classRoster[1].getAssignmentGrade("first") == 80
 
 #test that students can total grades
-def test_grade_summation_control_process_iteratoratron():
+def test_studentGPA():
+    '''
+        Test for correct gpa calculation
+    '''
     #create student
     omg_mazing_student = Student("Fluffykins", "Rolly Polly", 1)
 
     #Add Assignments
-    omg_mazing_student.updateGrade("first assignmnet", 90)
-    omg_mazing_student.updateGrade("second assignment", 80)
-    omg_mazing_student.updateGrade("Theird assignment", 75)
+    omg_mazing_student.updateGrade("first assignmnet", 76)
+    omg_mazing_student.updateGrade("second assignment", 56)
+    omg_mazing_student.updateGrade("Theird assignment", 51)
     
     #TEST TEST TEST
-    assert omg_mazing_student.getGradeTotal() == 81.6
+    assert omg_mazing_student.getGPA() == round((76+56+57+34+41+13)/6, 1)
 
-#test that student can have no grade for assignment
+def test_teacherCanRemoveAssignment():
+    '''
+        Test that teacher can remove assignment from student
+    '''
+
     # classroom = createClassroom()
     # classroom.addStudent(createStudent(1))
     # classroom.addAssignment("first", 100)
     # classroom.addAssignment("second", 50)
     # classroom.gradeAssignment(1, "first", 90)
+    pass
 
 #test that teacher can get accurate class gpa
 

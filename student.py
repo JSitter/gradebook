@@ -21,7 +21,7 @@ class Student:
     def getAssignmentGrade(self, assignment):
         return self.assignmentGrades[assignment]
 
-    def getGradeTotal(self, assigned_assignments):
+    def getGPA(self, assigned_assignments):
         gradeTotal = 0
         for assignment in assigned_assignments:
             gradeTotal += self.assignmentGrades[assignment]
