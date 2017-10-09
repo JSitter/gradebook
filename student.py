@@ -39,8 +39,8 @@ class Student:
     def getID(self):
         return self.studentID
 
-    def setAttendance(year, month, day, attendance):
+    def setAttendance(self, year, month, day, attendance):
         pass
     
-    def getAttendance(year, month, day):
+    def getAttendance(self, year, month, day):
         pass
