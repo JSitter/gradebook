@@ -28,14 +28,16 @@ class Student:
         print("Class Assignments: ", assigned_assignments)
         studentTotal = 0
         assignmentTotal = 0
-        print(self.assignmentGrades)
+       
         for assignment in self.assignmentGrades:
-                print(self.assignmentGrades[assignment])
-
+                studentTotal += self.assignmentGrades[assignment]
+                assignmentTotal += assigned_assignments[assignment]
+                print("student grade: ", self.assignmentGrades[assignment])
+                print("assignment grade ", assigned_assignments[assignment])
         if assignmentTotal == 0:
             return 100
         else:
-            return round((studentTotal/assignmentTotal), 2)
+            return round((studentTotal/assignmentTotal) * 100 , 1)
 
     def getID(self):
         return self.studentID

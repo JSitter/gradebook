@@ -1,4 +1,5 @@
 import pytest
+import random
 from student import Student
 from classroom import Classroom
 
@@ -99,15 +100,16 @@ def test_studentGPA():
     '''
     classRoom = createClassroom()
     student = createStudent(1);
-    assignmentDict = createAssignmentList()
+    assignmentDict = createStudentAssignmentList()
     for assignment in assignmentDict:
-        student.updateGrade( assignment, assignmentDict[assignment])
+        student.updateGrade( assignment, assignmentDict[assignment] )
     assert student.getGPA(createAssignmentList()) == round((76+56+57+34+41+13)/6, 1)
 
-def test_teacherCanRemoveAssignment():
+def test_GPAafterAssignmentRemoval():
     '''
         Test that teacher can remove assignment from student
     '''
+    
 
     # classroom = createClassroom()
     # classroom.addStudent(createStudent(1))
@@ -131,5 +133,8 @@ def createClassroom():
 def createStudent(id):
     return Student("Fluffykins", "Rolly Polly", id)
 
-def createAssignmentList():
+def createStudentAssignmentList():
     return { "first" : 76, "Second" : 56 , "Third": 57, "Fourth" : 34, "Fifth" : 41, "Sixth" : 13}
+
+def createAssignmentList():
+    return { "first" : 100, "Second" : 100 , "Third": 100, "Fourth" : 100, "Fifth" : 100, "Sixth" : 100}
