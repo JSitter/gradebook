@@ -21,33 +21,46 @@ def test_classroomName():
 
 #test that classroom contains meeting days
 def test_classDays():
+    '''
+    test that classroom contains meeting days
+    '''
     new_class = Classroom("Class Name", ['Mon', 'Wed', 'Fri'], ["11:30", "14:30"] )
     assert new_class.classDays[0] == 'Mon'
     assert new_class.classDays[1] == 'Wed'
     assert new_class.classDays[2] == 'Fri'
     assert len(new_class.classDays) == 3
 
-#test that classroom contains meeting times
 def test_classTimes():
+    '''
+    test that classroom contains meeting times
+    '''
     new_class = Classroom("Class Name", ['Mon', 'Wed', 'Fri'], ["11:30", "14:30"] )
     assert new_class.classTimes[0] == '11:30'
     assert new_class.classTimes[1] == '14:30'
     assert len(new_class.classTimes) == 2
 
-#test that student class exists
 def test_studentClass():
+    '''
+    test that student class exists
+    '''
     new_student = Student("Last", "First", "345443")
     assert new_student 
 
-#test that roster of assignments exists
-#test that student's assignment accepts grade
+
 def test_assignmentList():
+    '''
+    test that roster of assignments exists
+    test that student's assignment accepts grade
+    '''
     new_student = Student("first", "last", "1")
     new_student.updateGrade("first", 67)
     assert new_student.assignmentGrades["first"] == 67
 
-#test that student gradebook can remove assignment
+
 def test_removeAssignment():
+    '''
+    test that student gradebook can remove assignment
+    '''
     new_student = Student("Test", "Case", 1)
     new_student.updateGrade("first", 67)
     assert len(new_student.assignmentGrades) == 1
