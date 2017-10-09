@@ -133,6 +133,22 @@ def test_getAttendance():
     student.setAttendance(2017, 3, 23, "Present")
     assert student.getAttendance(2017, 3, 23) == "Present"
 #test that teacher can get accurate class gpa
+def test_classGPA():
+    classRoom = createClassroom()
+    alf = createStudent(1)
+    fred = createStudent(2)
+    classRoom.assignmentList = createAssignmentList()
+    alf.assignmentGrades = createStudentAssignmentList()
+    fred.assignmentGrades = createStudentAssignmentList()
+    fred.removeAssignment("first")
+
+    
+    studentList = createStudentAssignmentList()
+
+    firstavg = avgAssignments(studentList)
+    secondavg = studentList.pop("first")  
+    
+    assert classRoom.classGPA() == round((secondavg + firstavg)/2, 1)
 
 #test that teacher can get attendance
 
@@ -154,3 +170,9 @@ def createStudentAssignmentList():
 
 def createAssignmentList():
     return { "first" : 100, "Second" : 100 , "Third": 100, "Fourth" : 100, "Fifth" : 100, "Sixth" : 100}
+
+def avgAssignments(assignments):
+    accumulator = 0
+    for key in assignments:
+        accumulator += assignments[key]
+    return round(accumulator/len(assignments), 1)
