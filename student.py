@@ -40,7 +40,8 @@ class Student:
         return self.studentID
 
     def setAttendance(self, year, month, day, attendance):
-        pass
+        daystamp = '%04d%02d%02d' % (year, month, day)
+        self.attendance[daystamp] = attendance
     
     def getAttendance(self, year, month, day):
-        pass
+        return self.attendance['%04d%02d%02d' % (year, month, day)]
