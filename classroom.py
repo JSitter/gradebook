@@ -61,3 +61,12 @@ class Classroom:
                 gpaBest = studentGPA
         
         return gpaBest
+
+    def classWorst(self):
+        gpaWorst = 10000000000
+        for student in self.classRoster:
+            studentGPA = self.classRoster[student].getGPA(self.assignmentList)
+            if studentGPA < gpaWorst:
+                gpaWorst = studentGPA
+        
+        return gpaWorst
