@@ -169,26 +169,6 @@ def test_getAttendance():
     student.setAttendance(2017, 3, 23, "Present")
     assert student.getAttendance(2017, 3, 23) == "Present"
 
-def test_classGPA():
-    '''
-    test that teacher can get accurate class gpa
-    '''
-    classRoom = createClassroom()
-    alf = createStudent(1)
-    fred = createStudent(2)
-    classRoom.assignmentList = createAssignmentList()
-    alf.assignmentGrades = createStudentAssignmentList()
-    fred.assignmentGrades = createStudentAssignmentList()
-    fred.removeAssignment("first")
-
-    
-    studentList = createStudentAssignmentList()
-
-    firstavg = avgAssignments(studentList)
-    secondavg = studentList.pop("first")  
-    
-    assert classRoom.classGPA() == round((secondavg + firstavg)/2, 1)
-
 #Test gradebook can remove assignment
 def test_gradebookRemoveAssignment():
     classroom = createClassroom()
