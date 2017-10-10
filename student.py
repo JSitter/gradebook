@@ -28,8 +28,9 @@ class Student:
         assignmentTotal = 0
        
         for assignment in self.assignmentGrades:
-                studentTotal += self.assignmentGrades[assignment]
-                assignmentTotal += assigned_assignments[assignment]
+                if assigned_assignments[assignment]:
+                    studentTotal += self.assignmentGrades[assignment]
+                    assignmentTotal += assigned_assignments[assignment]
 
         if assignmentTotal == 0:
             return 100
