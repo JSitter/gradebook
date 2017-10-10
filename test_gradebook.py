@@ -203,7 +203,15 @@ def test_getClassBest():
     assert classroom.classBest() == 90
 
 #test gradebook returns propler class min
+def test_classWorst():
+    classroom = createClassroom()
+    classroom.addStudent(createStudent(1))
+    classroom.addStudent(createStudent(2))
+    classroom.assignmentList = createAssignmentList()
+    classroom.gradeAssignment(1, "first", 90)
+    classroom.gradeAssignment(2, "first", 70)
 
+    assert classroom.classWorst() == 70
 
 def createClassroom():
     return Classroom("Calculus", ["Mon", "Wed", "Fri"], ["12:30", "14:45"])
