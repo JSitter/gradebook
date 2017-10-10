@@ -44,4 +44,11 @@ class Classroom:
         self.classRoster[studentID].updateGrade(assignmentName, grade)
     
     def classGPA(self):
-        pass
+        gpaTotal = 0
+        for student in self.classRoster:
+            gpaTotal += self.classRoster[student].getGPA(self.assignmentList)
+        
+        if len(self.classRoster) == 0:
+            return 0
+        else:
+            return gpaTotal/len(self.classRoster)
