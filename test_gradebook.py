@@ -192,6 +192,15 @@ def test_gradebookClassAvg():
     assert classroom.classGPA() == 55
 
 #test gradebook return proper class max
+def test_getClassBest():
+    classroom = createClassroom()
+    classroom.addStudent(createStudent(1))
+    classroom.addStudent(createStudent(2))
+    classroom.assignmentList = createAssignmentList()
+    classroom.gradeAssignment(1, "first", 90)
+    classroom.gradeAssignment(2, "first", 70)
+
+    assert classroom.classBest() == 90
 
 #test gradebook returns propler class min
 
