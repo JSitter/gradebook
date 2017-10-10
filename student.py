@@ -23,7 +23,6 @@ class Student:
         return self.assignmentGrades[assignment]
 
     def getGPA(self, assigned_assignments):
-        print("Class Assignments: ", assigned_assignments)
         studentTotal = 0
         assignmentTotal = 0
        
