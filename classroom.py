@@ -52,3 +52,12 @@ class Classroom:
             return 0
         else:
             return gpaTotal/len(self.classRoster)
+    
+    def classBest(self):
+        gpaBest = 0
+        for student in self.classRoster:
+            studentGPA = self.classRoster[student].getGPA(self.assignmentList)
+            if studentGPA > gpaBest:
+                gpaBest = studentGPA
+        
+        return gpaBest
