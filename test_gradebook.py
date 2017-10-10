@@ -197,7 +197,19 @@ def test_gradebookRemoveAssignment():
     assert len(classroom.assignmentList) == 5
 
 #Test gradebook returns proper class avg
+def test_gradebookClassAvg():
+    classroom = createClassroom()
+    classroom.assignmentList = createAssignmentList()
+    classroom.addStudent(createStudent(1))
+    classroom.addStudent(createStudent(2))
+    classroom.gradeAssignment(1, "first", 80)
+    classroom.gradeAssignment(1, "Second", 70)
+    classroom.gradeAssignment(1, "Third", 60)
+    classroom.gradeAssignment(2, "first", 50)
+    classroom.gradeAssignment(2, "Second", 40)
+    classroom.gradeAssignment(2, "Third", 30)
 
+    assert classroom.classGPA() == 55
 
 #test gradebook return proper class max
 
